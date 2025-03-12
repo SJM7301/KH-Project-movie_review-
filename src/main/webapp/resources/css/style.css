@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	background-color: gray;
+}
+
+.carousel-control-prev {
+    left: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.carousel-control-next {
+    right: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#prod-list .caption {
+	position: absolute;
+	top: 100px;
+	width: 380px;
+	height: 300px;
+	padding-top: 20px;
+	background: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	z-index: 10;
+}
+
+#prod-list .list {
+	position: relative;
+}
+
+#prod-list .list:hover .caption {
+	opacity: 1;
+}
+
+.prod-list .caption h5, .caption b, .caption p {
+	color: #fff;
+}
+
+.mainImages {
+	width: 100%;
+	max-width: 300px;
+	height: 400px;
+}
