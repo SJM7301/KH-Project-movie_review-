@@ -52,6 +52,14 @@ public class BoardController extends HttpServlet {
 			requestBoardDelete(request);
 			RequestDispatcher rd = request.getRequestDispatcher("/BoardListAction.do");
 			rd.forward(request, response);
+		} else if (command.equals("/BoardCommentWriteAction.do")) {
+			requestBoardCommentList(request);
+			RequestDispatcher rd = request.getRequestDispatcher("/BoardListAction.do");
+			rd.forward(request, response);
+		} else if (command.equals("/BoardCommentDeleteAction.do")) {
+			requestBoardCommentDelete(request);
+			RequestDispatcher rd = request.getRequestDispatcher("/BoardListAction.do");
+			rd.forward(request, response);
 		}
 	}
 
@@ -153,7 +161,6 @@ public class BoardController extends HttpServlet {
 		board.setQnaNum(num);
 		board.setQnaName(request.getParameter("name"));
 		board.setQnaTitle(request.getParameter("title"));
-		board.setQnaContent(request.getParameter("content"));
 
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy/MM/dd(HH:mm:ss)");
 		String regist_day = formatter.format(new java.util.Date());
@@ -164,14 +171,45 @@ public class BoardController extends HttpServlet {
 
 		dao.updateBoard(board);
 	}
-
-	// 선택된 글 삭제하기
+	
+	// 선택된 글 내용 삭제하기
 	public void requestBoardDelete(HttpServletRequest request) {
-
+		
 		int num = Integer.parseInt(request.getParameter("num"));
 		int pageNum = Integer.parseInt(request.getParameter("pageNum"));
-
+		
 		BoardDAO dao = BoardDAO.getInstance();
 		dao.deleteBoard(num);
+	}
+	
+	private void requestBoardCommentList(HttpServletRequest request) {
+		BoardDAO dao = BoardDAO.getInstance();
+
+		BoardComment board = new BoardComment();
+		board.setC_id(request.getParameter("c_id"));
+		board.setR_id(request.getParameter("r_id"));
+		board.setM_id(request.getParameter("m_id"));
+		board.setContent(request.getParameter("content"));
+
+		System.out.println(request.getParameter("c_id"));
+		System.out.println(request.getParameter("r_id"));
+		System.out.println(request.getParameter("m_id"));
+		System.out.println(request.getParameter("content"));
+
+		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy/MM/dd(HH:mm:ss)");
+		String create_at = formatter.format(new java.util.Date());
+
+		board.setCreated_at(create_at);
+
+		dao.insertBoardComment(board);
+	}
+
+
+	private void requestBoardCommentDelete(HttpServletRequest request) {
+		BoardDAO dao = BoardDAO.getInstance();
+		
+		int num = Integer.parseInt(request.getParameter("c_id"));
+		
+		dao.deleteBoardComment(num);
 	}
 }

@@ -88,7 +88,6 @@
 					<option value="qna_name">글쓴이에서</option>
 				</select> <input name="text" type="text" /> <input type="submit" id="btnAdd" class="btn btn-primary " value="검색 " />				
 			</div>
-			
 		</form>			
 	</div>
 	<jsp:include page="../footer.jsp" />

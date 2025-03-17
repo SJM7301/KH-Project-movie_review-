@@ -14,7 +14,7 @@
 	driver="com.mysql.cj.jdbc.Driver" user="root" password="1111" />
 
 <sql:query dataSource="${dataSource}" var="resultSet">
-   SELECT * FROM member WHERE m_id=? AND m_password=?
+	SELECT * FROM member WHERE m_id=? AND m_password=?
 	<sql:param value="<%=id%>" />
 	<sql:param value="<%=password%>" />
 </sql:query>

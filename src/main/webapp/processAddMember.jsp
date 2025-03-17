@@ -5,10 +5,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String id = request.getParameter("id");
-	String password = request.getParameter("password");
-	String name = request.getParameter("name");
-	String mail1 = request.getParameter("mail1");
+	String id = request.getParameter("m_id");
+	String password = request.getParameter("m_password");
+	String name = request.getParameter("m_name");
+	String mail1 = request.getParameter("m_mail1");
 	String mail2 = request.getParameterValues("mail2")[0];
 	String mail = mail1 + "@" + mail2;
 
@@ -33,4 +33,3 @@
 <c:if test="${resultSet>=1}">
 	<c:redirect url="resultMember.jsp?msg=1" />
 </c:if>
-

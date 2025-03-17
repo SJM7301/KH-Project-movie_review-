@@ -22,55 +22,70 @@
 		            <!-- 왼쪽 텍스트 부분 -->
 		            <div class="col-md-8">
 		                <h1 class="display-5 fw-bold">영화 리뷰 목록</h1>
-		                <p class="col-md-8 fs-4">Movie_Review List</p>
+		                <p class="col-md-8 fs-4">Movie_Review List</p><br><br>
+		                <div>
+		                	<h2><b>공지사항</b></h2>
+		                	<p> 1. 영화리뷰 상세페이지 안에 리뷰 및 댓글 가능하게 하기. (진행 중)<br>
+								2. QnA도 질문한 곳에 admin만 댓글 가능하게 하기. (진행 중)<br>
+								3. 메인화면이 너무 허전해 보인다. -> 스크롤 이미지 옆에 채워넣으면 좋겠다. (해결 완료)<br>
+								4. 액션, SF, 코미디, 로맨스, 기타 페이지 또한 너무 허전해 보인다. -> (해결 완료)
+		                	</p>
+		                </div>
 		            </div>
 		            <!-- 오른쪽 이미지 슬라이드 부분 -->
 		            <div class="col-md-4">
 		                <!-- Carousel 시작 -->
 		                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
-		                    <div class="carousel-inner">
-								<%
-									PreparedStatement pstmt1 = null;
-									ResultSet rs1 = null;
-									String sql1 = "SELECT * FROM review ORDER BY r_id DESC";
-									pstmt1 = conn.prepareStatement(sql1);
-									rs1 = pstmt1.executeQuery();
-									int slideIndex = 0;
-									while (rs1.next()){
-										String activeClass = (slideIndex == 0) ? "active" : "";
-								%>
-		                       
-		                        <div id="prod-list" class="carousel-item <%=activeClass %>">
-		                            <div class="list">
-			                            <a href="./detail.jsp?id=<%=rs1.getString("r_id") %>">
-			                                <img src="./resources/images/<%=rs1.getString("r_filename") %>" alt="Movie_Image<%= rs1.getString("r_id") %>" class="d-block w-100 img-fluid" style="height: 50%;">
-			                            </a>
-			                            <div class="caption">
-			                            	<h5><b><%=rs1.getString("r_title") %></b></h5>
-											<p><%=rs1.getString("r_director") %>
-											<br><%=rs1.getString("r_country") %> | <%=rs1.getString("r_releaseDate") %> | <%=rs1.getString("r_star") %>점
-											<p><%=rs1.getString("r_description").substring(0, 60) %>..
-			                            </div>
-		                            </div>
-		                        </div>
-		                        <%
-									}
-									if(rs1 != null)
-										rs1.close();
-									if(pstmt1 != null)
-										pstmt1.close();
-								%>
-		                    </div>
-		                    <!-- 오른쪽, 왼쪽 버튼 추가 -->
-		                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-		                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		                        <span class="visually-hidden">Previous</span>
-		                    </button>
-		                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-		                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		                        <span class="visually-hidden">Next</span>
-		                    </button>
-		                </div>
+						    <div class="carousel-inner">
+						        <%
+						            PreparedStatement pstmt1 = null;
+						            ResultSet rs1 = null;
+						            String sql1 = "SELECT * FROM review ORDER BY r_id DESC";
+						            pstmt1 = conn.prepareStatement(sql1);
+						            rs1 = pstmt1.executeQuery();
+						            int slideIndex = 0;
+						            while (rs1.next()){
+						                String activeClass = (slideIndex == 0) ? "active" : "";
+						        %>
+						        <div id="prod-list" class="carousel-item <%=activeClass %>">
+						            <div class="list">
+						                <a href="./detail.jsp?id=<%=rs1.getString("r_id") %>">
+						                    <img src="./resources/images/<%=rs1.getString("r_filename") %>" alt="Movie_Image<%= rs1.getString("r_id") %>" class="d-block w-100 img-fluid" style="height: 50%;">
+						                </a>
+						                <div class="caption">
+						                    <h5><b><%=rs1.getString("r_title") %></b></h5>
+						                    <p><%=rs1.getString("r_director") %></p>
+						                    <p><%=rs1.getString("r_country") %> | <%=rs1.getString("r_releaseDate") %> | <%=rs1.getString("r_star") %>점</p>
+						                    <p><%=rs1.getString("r_description").substring(0, 60) %>...</p>
+						                </div>
+						            </div>
+						        </div>
+						        <%
+						            slideIndex++;
+						            }
+						            if(rs1 != null) rs1.close();
+						            if(pstmt1 != null) pstmt1.close();
+						        %>
+						    </div>
+						    <!-- 오른쪽, 왼쪽 버튼 추가 -->
+						    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+						        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						        <span class="visually-hidden">Previous</span>
+						    </button>
+						    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+						        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						        <span class="visually-hidden">Next</span>
+						    </button>
+						</div>
+						
+						<script>
+						    var myCarousel = document.querySelector('#carouselExample');
+						    var carousel = new bootstrap.Carousel(myCarousel, {
+						        interval: 2000,  // 슬라이드 간격을 2초로 설정
+						        ride: 'carousel' // 자동 시작 설정
+						    });
+						</script>
+
 		                <!-- Carousel 끝 -->
 		            </div>
 		        </div>

@@ -21,6 +21,16 @@
 			alert("비밀번호를 동일하게 입력하세요.");
 			return false;
 		}
+		
+	    if (!document.newMember.m_name.value) {
+	        alert("성명을 입력하세요.");
+	        return false;
+	    }
+
+	    if (!document.newMember.m_mail1.value) {
+	        alert("이메일을 입력하세요.");
+	        return false;
+	    }
 	}
 </script>
 <body>
@@ -40,25 +50,25 @@
 				<div class="mb-3 row">
 					<label class="col-sm-2 ">아이디</label>
 					<div class="col-sm-3">
-						<input name="id" type="text" class="form-control" placeholder="id" >
+						<input name="m_id" type="text" class="form-control" placeholder="id" >
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">비밀번호</label>
 					<div class="col-sm-3">
-						<input name="password" type="text" class="form-control" placeholder="password" >
+						<input name="m_password" type="text" class="form-control" placeholder="password" >
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">비밀번호확인</label>
 					<div class="col-sm-3">
-						<input name="password_confirm" type="text" class="form-control" placeholder="password confirm" >
+						<input name="m_password_confirm" type="text" class="form-control" placeholder="password confirm" >
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">성명</label>
 					<div class="col-sm-3">
-						<input name="name" type="text" class="form-control" placeholder="name" >
+						<input name="m_name" type="text" class="form-control" placeholder="name" >
 					</div>
 				</div>
 			
@@ -67,7 +77,7 @@
 					<div class="col-sm-10">
 						<div class="row">
 							<div class="col-sm-4">
-								<input type="text" name="mail1" maxlength="50" class="form-control"  placeholder="email">
+								<input type="text" name="m_mail1" maxlength="50" class="form-control"  placeholder="email">
 							</div> @
 							<div class="col-sm-3">
 								<select name="mail2" class="form-select">

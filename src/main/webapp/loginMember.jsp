@@ -38,13 +38,15 @@
     			<div class="form-floating  mb-3 row">     
      	 			<input type="password" class="form-control" name='password' placeholder="Password">
     				 <label for="floatingPassword">Password</label>
-			</div>
-
+				</div>
    
-  				<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
-   				
+				<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
+				<br>
+				<br>
+				<div class="links">
+					<a href="findId.jsp">아이디 찾기</a> | <a href="findPw.jsp">비밀번호 찾기</a> | <a href="addMember.jsp">회원가입</a>
+				</div>
   			</form>
-
 		</div>
 	</div>
 
