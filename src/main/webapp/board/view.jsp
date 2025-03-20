@@ -50,7 +50,8 @@
 			<div class="mb-3 row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 					<c:set var="userId" value="<%=notice.getQnaId()%>" />
-					<c:if test="${sessionId==userId}">
+					<c:if test="${sessionId != null && ((sessionId == userId) || (sessionId == 'admin'))}">
+					<!-- admin인 경우 QnA를 삭제할 수 있지만 수정은 할 수 없다 -> DB에 작성된 Id가 달라서 수정이 안된다. -->
 						<p>
 							<a	href="./BoardDeleteAction.do?num=<%=notice.getQnaNum()%>&pageNum=<%=nowpage%>"	class="btn btn-danger"> 삭제</a> 
 							<input type="submit" class="btn btn-success" value="수정 ">

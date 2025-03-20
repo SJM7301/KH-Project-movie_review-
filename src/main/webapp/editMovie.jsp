@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>영화 리뷰 수정</title>
 <link href="./resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="./resources/css/style.css" rel="stylesheet" />
 </head>
 
 <script type="text/javascript">

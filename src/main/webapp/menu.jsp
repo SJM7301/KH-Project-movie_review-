@@ -15,7 +15,7 @@
 	<header class="pb-3 mb-4 border-bottom">
 		<div class="container">
 			<div class="d-flex justify-content-between justrify-content-lg-start">
-				<a href="./main.jsp" class="nav- link"><img alt="Logo_Image" src="./resources/images/logo.jpg" style="width:300" height="50"></a>
+				<a href="./main.jsp" class="nav- link"><img alt="Logo_Image" src="./resources/images/logo.jpg" style="width:auto;" height="50"></a>
 					
 				<!-- 내비게이션 항목 -->
                 <ul class="nav nav-pills">

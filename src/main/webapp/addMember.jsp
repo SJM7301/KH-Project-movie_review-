@@ -56,13 +56,13 @@
 				<div class="mb-3 row">
 					<label class="col-sm-2">비밀번호</label>
 					<div class="col-sm-3">
-						<input name="m_password" type="text" class="form-control" placeholder="password" >
+						<input name="m_password" type="password" class="form-control" placeholder="password" >
 					</div>
 				</div>
 				<div class="mb-3 row">
 					<label class="col-sm-2">비밀번호확인</label>
 					<div class="col-sm-3">
-						<input name="m_password_confirm" type="text" class="form-control" placeholder="password confirm" >
+						<input name="m_password_confirm" type="password" class="form-control" placeholder="password confirm" >
 					</div>
 				</div>
 				<div class="mb-3 row">

@@ -80,7 +80,7 @@
 		        <p><%= rs2.getString("content") %></p>
 		        <%
 		            // 현재 세션 아이디와 댓글 작성자가 같은 경우만 삭제 버튼을 표시
-		            if (sessionId != null && sessionId.equals(rs2.getString("m_id"))) {
+		            if (sessionId != null && sessionId.equals(rs2.getString("m_id")) || sessionId.equals("admin")) {
 		        %>
 		        <form action="deleteComment.jsp" method="POST">
 		            <input type="hidden" name="c_id" value="<%= rs2.getInt("c_id") %>">
